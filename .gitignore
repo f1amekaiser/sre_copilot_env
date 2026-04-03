@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+*.pyd
+.pytest_cache/
+openenv_sre_copilot_env.egg-info/
