@@ -1,2 +1,0 @@
-[console_scripts]
-server = sre_copilot_env.server.app:main
