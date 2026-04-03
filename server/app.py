@@ -17,7 +17,7 @@ try:
 except ImportError:
     from models import SreAction, SreObservation
 
-from .sre_copilot_env_environment import SreCopilotEnvironment
+from sre_copilot_env_environment import SreCopilotEnvironment
 
 # Create the app
 app = create_app(
