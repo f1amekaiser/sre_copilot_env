@@ -1,0 +1,15 @@
+[project]
+name = "sre-copilot-env"
+version = "0.1.0"
+description = "SRE Copilot OpenEnv environment"
+authors = [{ name = "Aditya" }]
+
+dependencies = [
+    "openenv-core>=0.2.0",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.24.0",
+    "pydantic>=2.10.0"
+]
+
+[project.scripts]
+server = "server.app:main"

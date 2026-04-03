@@ -1,0 +1,14 @@
+name: sre-copilot-env
+version: 1.0.0
+description: Autonomous Incident Response Agent (SRE Copilot) - Real-world simulation for training agents on production incidents (CPU spikes, DB timeouts, cascading outages).
+author: Team Mugiwara (Aditya + Rohhith)
+tasks:
+  - name: easy_cpu_spike
+    description: Handle single high-CPU alert on web service
+    difficulty: easy
+  - name: medium_db_timeout
+    description: Diagnose and fix database connection timeout affecting multiple services
+    difficulty: medium
+  - name: hard_cascading_outage
+    description: Resolve misleading cascading outage with false alerts
+    difficulty: hard
