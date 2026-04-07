@@ -1,26 +1,22 @@
-FROM debian:bookworm-slim
+FROM python:3.10-bullseye
 
 WORKDIR /app
 
-# Install Python + pip + curl
+# Install system deps (very minimal, stable image)
 RUN apt-get update && \
-    apt-get install -y python3 python3-pip curl && \
+    apt-get install -y curl && \
     rm -rf /var/lib/apt/lists/*
 
-# Copy requirements
-COPY server/requirements.txt .
+# Copy everything first (important for context)
+COPY . .
 
 # Install dependencies
-RUN pip3 install --no-cache-dir --break-system-packages -r requirements.txt
-
-# Copy project files
-COPY . .
+RUN pip install --no-cache-dir -r server/requirements.txt
 
 # Fix imports
 ENV PYTHONPATH=/app
 
-# Move into server folder
+# Run from server directory
 WORKDIR /app/server
 
-# Run FastAPI
-CMD ["python3", "-m", "uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
