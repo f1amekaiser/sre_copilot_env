@@ -62,7 +62,10 @@ def main():
     if not HF_TOKEN:
         raise RuntimeError("HF_TOKEN is required for inference as per submission requirements")
 
-    client = OpenAI(base_url=API_BASE_URL, api_key=HF_TOKEN)
+    client = OpenAI(
+        base_url=os.environ["API_BASE_URL"],
+        api_key=os.environ["API_KEY"]
+    )
 
     base_url = os.getenv("OPENENV_BASE_URL", "http://localhost:8000")
     print(f"[INFO] Using OpenEnv base URL: {base_url}", flush=True)
